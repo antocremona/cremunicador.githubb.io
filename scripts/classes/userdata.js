@@ -23,13 +23,7 @@ class User {
     }
 }
 
-let persona1 = new User()
 
-persona1.calcularMtCuota(parseInt(prompt('Ingrese cantidad de cuotas no mayor a 24')))
-
-console.log(persona1)
-
-persona1.infoCuota()
 
 
 
