@@ -1,2 +1,8 @@
 // Varibles globales
-const usersCreados = []
+const usersCreados = [];
+
+const usersCotizadosMap = [];
+
+let continuar = true
+
+let us = 0
