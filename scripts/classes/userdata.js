@@ -4,8 +4,8 @@ class User {
         this.nombre = document.getElementById('firstName').value;
         this.apellido = document.getElementById('lastName').value;
         this.email = document.getElementById('email').value;
-        this.edad = parseInt(prompt('Ingrese su edad'));
-        this.mtcobertura = parseInt(prompt('Ingrese el monto de cobertura (Hasta USD 100K)'));
+        this.edad = document.getElementById('edad').value;
+        this.mtcobertura = document.getElementById('coberMnt').value;
         this.iva = 1.21
         this.mtCuota = mtCuota
     }

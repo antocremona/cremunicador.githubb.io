@@ -17,8 +17,8 @@
     <div class="container">
         <main>
           <div class="py-5 text-center">
-            <img class="d-block mx-auto mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-            <h2>Checkout form</h2>
+            <img class="d-block mx-auto mb-4" src="./media/logoSure.PNG" alt="" width="100" height="100">
+            <h2>Cotizador de seguros</h2>
             <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
           </div>
       
@@ -106,6 +106,22 @@
                     <input type="email" class="form-control" id="email" placeholder="you@example.com">
                     <div class="invalid-feedback">
                       Please enter a valid email address for shipping updates.
+                    </div>
+                  </div>
+
+                  <div class="col-md-3">
+                    <label for="age" class="form-label">Edad</label>
+                    <input type="number" class="form-control" id="age" placeholder="" required>
+                    <div class="invalid-feedback">
+                      Edad requerida.
+                    </div>
+                  </div>
+
+                  <div class="col-md-5">
+                    <label for="coberMnt" class="form-label">Monto de cobertura (hasta $100K)</label>
+                    <input type="number" class="form-control" id="coberMnt" placeholder="" required>
+                    <div class="invalid-feedback">
+                      Monto de cobertura requerida.
                     </div>
                   </div>
       
@@ -221,7 +237,7 @@
       
                 <hr class="my-4">
       
-                <button class="w-100 btn btn-primary btn-lg" type="submit" onclick="Cotizar()">Cotizar</button>
+                <button id='submitFormBtn' class="w-100 btn btn-primary btn-lg" type="submit" onclick="Cotizar()">Cotizar</button>
               </form>
             </div>
           </div>
