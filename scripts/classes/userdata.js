@@ -4,7 +4,7 @@ class User {
         this.nombre = document.getElementById('firstName').value;
         this.apellido = document.getElementById('lastName').value;
         this.email = document.getElementById('email').value;
-        this.edad = document.getElementById('edad').value;
+        this.edad = document.getElementById('age').value;
         this.mtcobertura = document.getElementById('coberMnt').value;
         this.iva = 1.21
         this.mtCuota = mtCuota

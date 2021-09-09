@@ -1,7 +1,7 @@
 // Funcion para ejecutar el simulador
 function Cotizar() {
     while (continuar) {
-        let cotizame = Si
+        let cotizame = prompt('Desea cotizar su cobertura? Si/No')
         switch (cotizame) {
             case 'Si': 
             usersCreados.push(new User())
