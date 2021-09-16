@@ -12,8 +12,7 @@ $('.pokeboton').click( ()=> {
         <div class="col">
             <div class="card">
                 <img src=${rsp.sprites.front_default} class="card-img-top" alt="pokephoto">
-                <hr>
-                <div class="card-body">
+                <div class="card-body bg-light">
                     <h5 class="card-title">${rsp.name}</h5>
                     <p class="card-text">${rsp.order}</p>
                 </div>
