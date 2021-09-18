@@ -19,11 +19,20 @@ fetch(`https://api.arasaac.org/api/pictograms/${lang}/search/${lookUpWord}`)
     .then( (data) => {
 
         console.log(data)
-        
+        pictos = []
+
         data.forEach( (el) => {
-            lista.innerHTML += `
-                <li class="">
-                    ${el._id}
-                </li>`
+            pictos.push(el._id)
+            console.log(pictos)
+        })
+
+        pictos.forEach( (picId) => {
+            let picImg=`https://api.arasaac.org/api/pictograms/${picId}?download=false`
+
+            console.log(picImg)
+            lista.innerHTML +=
+            `<li class="card col-3">
+                <img src=${picImg} />
+            </li>`
         })
     })
