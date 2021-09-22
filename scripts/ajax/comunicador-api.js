@@ -18,14 +18,16 @@ const buscarPic = () => {
         //Array para recolectar los id de las imágenes
         let pictos = []
 
+
         //Recorro el array obtenido en la API para pushear los ids dentro del array nuevo
         data.forEach( (el) => {
             pictos.push(el._id)
             console.log(pictos)
         })
 
-        //Recorro el array nuevo con los ids para localizar las imágenes y appendearlas en el html
-        pictos.forEach( (picId) => {
+        if(pictos.length>0) {
+            //Recorro el array nuevo con los ids para localizar las imágenes y appendearlas en el html
+            pictos.forEach( (picId) => {
             let picImg=`https://api.arasaac.org/api/pictograms/${picId}?download=false`
 
             console.log(picImg)
@@ -33,9 +35,13 @@ const buscarPic = () => {
             `<li class="card col-3">
                 <img src=${picImg} />
             </li>`
-        })
-
-        //Aca tendria que vaciar el array y/o armar uno nuevo con el pictograma que se elija
+            })
+        } else {
+            lista.innerHTML +=
+            `<li class="card col-3">
+                <p>No se encontraron elementos <p/>
+            </li>`
+        }
     })
 }
 
