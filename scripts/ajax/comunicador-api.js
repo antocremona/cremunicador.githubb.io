@@ -1,12 +1,13 @@
-// Conexión con API con vainilla JS
-const lang = 'es'
+//Variables para linkear con el DOM
+const lang = ''
 const lista = document.getElementById('lista')
 const lookUpForm = document.getElementById('lookUpForm')
+const lookUpBtn = document.getElementById('btnBuscar')
 const lookUpWord = document.getElementById('lookUp')
 
-// let lookUpWord = 'pelota'
-
+// Conexión con API con vainilla JS
 const buscarPic = (lookUpWord) => {
+    //Valido si se ingreso un dato para buscar
     if(lookUpWord===''){
         console.log('Debe ingresar una palabra')
         lista.innerHTML +=
@@ -25,7 +26,7 @@ const buscarPic = (lookUpWord) => {
 
             //Recorro el array para localizar las imágenes y appendearlas en el html
             data.forEach( (el) => {
-                console.log(el.keywords[0].keyword)
+                let picDesc = (el.keywords[0].meaning === undefined) ? 'Descripción no disponible' : el.keywords[0].meaning
 
                 //Fuente >> GET /pictograms/{idPictogram}
                 let picImg=`https://api.arasaac.org/api/pictograms/${el._id}?download=false`
@@ -35,10 +36,9 @@ const buscarPic = (lookUpWord) => {
                     <img src=${picImg} class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">${el.keywords[0].keyword}</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <p class="card-text">${picDesc}</p>
+                        <button onclick="addtophrase(${el._id})" class="btn btn-primary">Agregar</button>
                 </li>`
-                
             })
         })
     }
@@ -46,6 +46,6 @@ const buscarPic = (lookUpWord) => {
 
 lookUpForm.addEventListener('submit', (e) => {
     e.preventDefault()
-
+    let lang = listLang.value
     buscarPic(lookUpWord.value)
 })

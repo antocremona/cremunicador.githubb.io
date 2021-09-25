@@ -14,7 +14,9 @@
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
       crossorigin="anonymous">
     </script>
+    <script defer src="./scripts/variables/languages.js"></script>
     <script defer src="./scripts/ajax/comunicador-api.js"></script>
+    <script defer src="./scripts/funciones/armatufrase.js"></script>
 
     <title>Document</title>
 </head>
@@ -24,10 +26,15 @@
             <h2>Comunicador</h2>
         </section>
     </main>
-    <form id="lookUpForm" class="col-4 text-center container">
-        <input class="form-control m-4" type="text" placeholder="Ingrese palabra clave" name="" id="lookUp">
-        <button class="btn btn-primary m-4">Buscar</button>
-    </form>
+    <div class="row g-3">
+        <form id="lookUpForm" class="col-2 text-center container">
+            <input class="form-control" type="text" placeholder="Ingrese palabra clave" name="" id="lookUp">
+            <select id="langList" class="form-select" aria-label="Default select example">
+                <option selected>Seleccionar el idioma</option>
+            </select>
+            <button id="btnBuscar" class="btn btn-primary m-4">Buscar</button>
+        </form>
+    </div>
     <ul id="lista" class="row">
         
     </ul>
