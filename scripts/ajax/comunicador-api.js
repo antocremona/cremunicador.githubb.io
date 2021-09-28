@@ -1,5 +1,5 @@
 //Variables para linkear con el DOM
-const lang = ''
+const lang = 'es'
 const lista = document.getElementById('lista')
 const lookUpForm = document.getElementById('lookUpForm')
 const lookUpBtn = document.getElementById('btnBuscar')
