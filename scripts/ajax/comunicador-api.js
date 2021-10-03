@@ -1,9 +1,10 @@
 //Variables para linkear con el DOM
-const lang = 'es'
+let lang = ''
 const lista = document.getElementById('lista')
 const lookUpForm = document.getElementById('lookUpForm')
 const lookUpBtn = document.getElementById('btnBuscar')
 const lookUpWord = document.getElementById('lookUp')
+let arrayData = []
 
 // Conexión con API con vainilla JS
 const buscarPic = (lookUpWord) => {
@@ -13,6 +14,8 @@ const buscarPic = (lookUpWord) => {
         lista.innerHTML +=
         `<h3>Debe ingresar una palabra clave</h3>`
     } else {
+        lang = (listLang.value === 'Seleccionar el idioma') ? 'es' : listLang.value
+
         //Conexión con la API de pictogramas
         //Endpoint usado > GET /pictograms/{locale}/search/{searchText}
         fetch(`https://api.arasaac.org/api/pictograms/${lang}/search/${lookUpWord}`)
@@ -20,6 +23,8 @@ const buscarPic = (lookUpWord) => {
         .then( (data) => {
 
             console.log(data)
+            arrayData = data
+            console.log(arrayData)
 
             //Limpia el html para que no se acumulen
             lista.innerHTML = ''
@@ -31,13 +36,15 @@ const buscarPic = (lookUpWord) => {
                 //Fuente >> GET /pictograms/{idPictogram}
                 let picImg=`https://api.arasaac.org/api/pictograms/${el._id}?download=false`
                 
+                // Genera un cuadro donde se ubica el picto, la palabra y descripción, y un botón triggers un modal
                 lista.innerHTML +=
                 `<li class="card col-2">
                     <img src=${picImg} class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">${el.keywords[0].keyword}</h5>
                         <p class="card-text">${picDesc}</p>
-                        <button onclick="addtophrase(${el._id})" class="btn btn-primary">Agregar</button>
+                        <button onclick="addtophrase(${el._id})" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">Agregar</button>
+                    </div>
                 </li>`
             })
         })
@@ -46,6 +53,5 @@ const buscarPic = (lookUpWord) => {
 
 lookUpForm.addEventListener('submit', (e) => {
     e.preventDefault()
-    let lang = listLang.value
     buscarPic(lookUpWord.value)
 })
