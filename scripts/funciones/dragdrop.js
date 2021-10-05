@@ -1,0 +1,1 @@
+//Coming soon. Función para arrastrar y reorganizar los pictogramas
