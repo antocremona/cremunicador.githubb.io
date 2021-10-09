@@ -52,6 +52,10 @@ const buscarPic = (lookUpWord) => {
                 })
 
             } else {
+                //Limpia el html para que no se acumulen
+                lista.innerHTML = ''
+                
+                //Muestra frase de error
                 lista.innerHTML += 
                 `<h3>Debe ingresar una palabra clave válida</h3>`
             }
